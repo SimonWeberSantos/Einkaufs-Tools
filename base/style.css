@@ -84,34 +84,23 @@ aside a {
   color: var(--c-text);
   border-radius: 5px;
   font-size: large;
-  border: solid 3px transparent;
+  border: solid 2px transparent;
   transition: border-color 0.2s ease;
 }
 
-aside a:hover {
+aside a:hover, aside a.back-link:hover {
   border-color: var(--c-primary-dk);
 }
 
-aside a:active {
+aside a:active, aside a.back-link:active {
   background-color: var(--c-primary);
-}
-
-aside a.active {
-  background-color: var(--c-primary);
-  border-color: var(--c-primary-dk);
-  font-weight: bold;
-  cursor: default;
-  pointer-events: none;
 }
 
 aside a.back-link {
-  font-size: medium;
-  color: var(--c-text-muted);
-  border-bottom: 1px solid var(--c-border);
-  border-radius: 0;
-  background-color: transparent;
-  margin-bottom: 0.25rem;
-  padding-bottom: 0.6rem;
+  color: var(--c-primary-dk);
+  border: 1px solid var(--c-border);
+  border-radius: 5px;
+  background-color: var(--c-bg);
 }
 
 
