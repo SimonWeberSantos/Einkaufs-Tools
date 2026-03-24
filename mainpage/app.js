@@ -7,7 +7,7 @@ function renderToolCards() {
   if (!main) return;
 
   main.innerHTML = TOOLS.map(tool => {
-    const href = tool.folder ? `../${tool.folder}/index.html` : '#';
+    const href = tool.folder ? `${tool.folder}/index.html` : '#';
     return `<a href="${href}">${tool.name}<br><span class="icon">${tool.icon}</span></a>`;
   }).join('');
 }

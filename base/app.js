@@ -10,14 +10,14 @@ function renderSidebar() {
   const currentFolder = decodeURIComponent(window.location.pathname).split('/').at(-2);
 
   const toolLinks = TOOLS.map(tool => {
-    const href    = tool.folder ? `../${tool.folder}/index.html` : '#';
+    const href    = tool.folder ? `${tool.folder}/index.html` : '#';
     const active  = tool.folder === currentFolder ? ' class="active"' : '';
     return `<a href="${href}"${active}>${tool.name}</a>`;
   }).join('');
 
   aside.innerHTML = `
     <h2>Weitere Webtools</h2>
-    <a href="../mainpage/index.html" class="back-link">&#8592; Zur Übersicht</a>
+    <a href="../index.html" class="back-link">&#8592; Zur Übersicht</a>
     ${toolLinks}
   `;
 }
