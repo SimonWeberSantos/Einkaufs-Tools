@@ -266,7 +266,7 @@ function cancelEditMode() {
 // Nach Bestätigung: Marker + Qty + Button zurücksetzen
 function resetAfterConfirm() {
   editRid = -1;
-  document.getElementById('m-input-qty').value = 0;
+  document.getElementById('m-input-qty').value = '';
   document.getElementById('m-btn-confirm').textContent = 'Übernehmen';
 }
 
@@ -303,9 +303,9 @@ function renderMobileEntries() {
       '<li>' +
         '<span class="m-entry__label">' +
           `${productName}<br>` +
-          `<small>${size}\u202fmm\u202f·\u202f${materialName}</small>` +
+          `<small>${size}\u202fmm\u202f·\u202f${materialName}</small><br>` +
+          `<span class="m-entry__qty">${qty}\u202f×\u202f${weight.toFixed(2)}\u202fkg\u202f=\u202f<strong>${granulat}\u202fkg</strong></span>` +
         '</span>' +
-        `<span class="m-entry__qty">${qty}\u202f×\u202f${weight.toFixed(2)}\u202fkg\u202f=\u202f<strong>${granulat}\u202fkg</strong></span>` +
         `<button class="m-entry__btn" data-action="edit" data-rid="${rid}" aria-label="Bearbeiten">&#9998;</button>` +
         `<button class="m-entry__btn m-entry__btn--delete" data-action="delete" data-rid="${rid}" aria-label="Löschen">&times;</button>` +
       '</li>'

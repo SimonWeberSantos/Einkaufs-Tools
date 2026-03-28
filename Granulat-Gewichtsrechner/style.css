@@ -283,11 +283,10 @@ main {
   color: var(--c-text-muted);
 }
 
-/* Stückzahl × Gewicht = Granulat */
+/* Stückzahl × Gewicht = Granulat (innerhalb .m-entry__label) */
 .m-entry__qty {
   font-size: 0.82rem;
   color: var(--c-text-muted);
-  white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
 
