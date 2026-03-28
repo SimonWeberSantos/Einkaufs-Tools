@@ -1,0 +1,33 @@
+{
+  "products": [
+    {
+      "name": "Ansaugdeckblatt CMVpro",
+      "sizes": [400, 315],
+      "materials": [
+        { "name": "PPs",       "weights": { "400": 1.25, "315": 0.85 } },
+        { "name": "PPs-el",    "weights": { "400": 1.30, "315": 0.90 } },
+        { "name": "PVDF",      "weights": { "400": 1.60, "315": 1.10 } },
+        { "name": "PPs weiss", "weights": { "400": 1.25, "315": 0.85 } },
+        { "name": "PE",        "weights": { "400": 1.10, "315": 0.75 } }
+      ]
+    },
+    {
+      "name": "Laufrad Unterteil CMVpro",
+      "sizes": [400, 315],
+      "materials": [
+        { "name": "PPs",    "weights": { "400": 2.40, "315": 1.55 } },
+        { "name": "PPs-el", "weights": { "400": 2.50, "315": 1.60 } },
+        { "name": "PVDF",   "weights": { "400": 3.10, "315": 2.00 } }
+      ]
+    },
+    {
+      "name": "Laufrad Oberteil CMVpro",
+      "sizes": [400, 315],
+      "materials": [
+        { "name": "PPs",    "weights": { "400": 1.90, "315": 1.20 } },
+        { "name": "PPs-el", "weights": { "400": 2.00, "315": 1.25 } },
+        { "name": "PVDF",   "weights": { "400": 2.45, "315": 1.55 } }
+      ]
+    }
+  ]
+}
