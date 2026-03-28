@@ -17,6 +17,9 @@ main {
      Elemente wie den Drawer verschieben würde). */
   min-width: 0;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
@@ -27,6 +30,7 @@ main {
   border: 2px solid var(--c-border);
   border-radius: 10px;
   padding: 2rem;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -56,7 +60,7 @@ main {
 }
 
 .table-scroll--narrow {
-  max-width: 360px;
+  max-width: 520px;
 }
 
 
@@ -87,10 +91,15 @@ main {
   background-color: var(--c-bg);
 }
 
-.data-table .cell-center { text-align: center; }
-.data-table .cell-right  { text-align: right; font-variant-numeric: tabular-nums; }
-
+.data-table .cell-center { text-align: left; }
+.data-table .cell-right  { text-align: left; font-variant-numeric: tabular-nums; }
 .data-table .cell-input  { padding: 0.2rem 0.4rem; }
+
+/* Puffer-Spalte in der Gesamtbedarf-Tabelle farblich hervorheben */
+.data-table .cell-buffer {
+  color: var(--c-primary-dk);
+  font-weight: bold;
+}
 
 
 /* ─── Stückzahl-Input (Desktop) ──────────────────────────────────── */
@@ -347,9 +356,23 @@ main {
 
 .m-totals__label { color: var(--c-text-muted); }
 
-.m-totals__value {
-  font-weight: bold;
+/* Rechte Seite: Basis und Bestellmenge übereinander */
+.m-totals__values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
   font-variant-numeric: tabular-nums;
+}
+
+.m-totals__basis {
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+}
+
+.m-totals__buffer {
+  font-weight: bold;
+  font-size: 0.9rem;
   color: var(--c-primary-dk);
 }
 

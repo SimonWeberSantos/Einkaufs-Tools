@@ -18,8 +18,17 @@
   </head>
   <body class="has-aside">
     <noscript>
-      <div style="padding:1rem;background:#c62828;color:#fff;text-align:center;font-family:sans-serif;">
-        Diese App benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser.
+      <div
+        style="
+          padding: 1rem;
+          background: #c62828;
+          color: #fff;
+          text-align: center;
+          font-family: sans-serif;
+        "
+      >
+        Diese App benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem
+        Browser.
       </div>
     </noscript>
     <header>
@@ -41,10 +50,8 @@
 
         <!-- Haupt-Inhalt: per app.js eingeblendet nach dem Laden -->
         <div id="content-wrapper" hidden>
-
           <!-- ═══ DESKTOP-ANSICHT (≥ 768px): klassische Tabelle ═══ -->
           <div id="desktop-view">
-
             <div class="table-scroll">
               <table class="data-table" id="granulat-table">
                 <thead>
@@ -69,7 +76,8 @@
                 <thead>
                   <tr>
                     <th>Material</th>
-                    <th>Gesamtbedarf&nbsp;(kg)</th>
+                    <th>Basis&nbsp;(kg)</th>
+                    <th>Granulat&nbsp;inkl.&nbsp;10&nbsp;%&nbsp;(kg)</th>
                   </tr>
                 </thead>
                 <tbody id="totals-body">
@@ -79,15 +87,19 @@
             </div>
 
             <!-- Ergebnis in die Zwischenablage kopieren (Word/Outlook-kompatibel) -->
-            <button class="copy-btn" id="copy-btn-desktop" type="button" disabled>
+            <button
+              class="copy-btn"
+              id="copy-btn-desktop"
+              type="button"
+              disabled
+            >
               Ergebnis kopieren
             </button>
-
-          </div><!-- /#desktop-view -->
+          </div>
+          <!-- /#desktop-view -->
 
           <!-- ═══ MOBILE-ANSICHT (< 768px): Card-UI ═══ -->
           <div id="mobile-view">
-
             <!-- Card 1: Eingabe-Formular -->
             <div class="m-card" id="m-card-input">
               <h3 class="m-card__title">Eingabe</h3>
@@ -129,7 +141,8 @@
               <button class="m-btn" id="m-btn-confirm" type="button">
                 Übernehmen
               </button>
-            </div><!-- /#m-card-input -->
+            </div>
+            <!-- /#m-card-input -->
 
             <!-- Card 2: Übersicht bestätigter Einträge + Totale -->
             <div class="m-card" id="m-card-overview">
@@ -144,15 +157,22 @@
               </div>
 
               <!-- Ergebnis in die Zwischenablage kopieren (Word/Outlook-kompatibel) -->
-              <button class="m-btn m-btn--copy" id="copy-btn-mobile" type="button" disabled>
+              <button
+                class="m-btn m-btn--copy"
+                id="copy-btn-mobile"
+                type="button"
+                disabled
+              >
                 Ergebnis kopieren
               </button>
-            </div><!-- /#m-card-overview -->
-
-          </div><!-- /#mobile-view -->
-
-        </div><!-- /#content-wrapper -->
-      </div><!-- /.tool-card -->
+            </div>
+            <!-- /#m-card-overview -->
+          </div>
+          <!-- /#mobile-view -->
+        </div>
+        <!-- /#content-wrapper -->
+      </div>
+      <!-- /.tool-card -->
     </main>
     <aside>
       <!-- Wird dynamisch von base/app.js aus base/tools.js befüllt -->
