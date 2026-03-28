@@ -122,6 +122,20 @@ main {
 }
 
 
+/* ─── Responsive: Mobile (≤ 767px) ──────────────────────────────── */
+@media (max-width: 767px) {
+
+  main {
+    padding: 1rem;
+  }
+
+  /* font-size explizit 16px: verhindert iOS Safari Auto-Zoom beim Input-Fokus */
+  .currency-row input {
+    font-size: 16px;
+  }
+}
+
+
 /* ─── Fehlermeldung ──────────────────────────────────────────────── */
 .error-msg {
   color: var(--c-error);
