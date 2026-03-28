@@ -1,3 +1,15 @@
+/* =================================================================
+ * Datei:    Währungsrechner/style.css
+ * Zweck:    Layout und Styling der Währungsrechner-Seite.
+ *           Alle Farben und Abstände über CSS-Variablen aus
+ *           base/style.css — hier nur tool-spezifische Regeln.
+ * Basis:    base/style.css (CSS-Variablen, Grid, Header, Footer)
+ * ================================================================= */
+
+
+/* ─── Seiten-Layout ──────────────────────────────────────────────── */
+
+/* Converter-Card horizontal zentrieren */
 main {
   display: flex;
   justify-content: center;
@@ -5,6 +17,8 @@ main {
   padding: 2rem;
 }
 
+
+/* ─── Converter-Card ─────────────────────────────────────────────── */
 .converter-card {
   background-color: var(--c-surface);
   border: 2px solid var(--c-border);
@@ -23,6 +37,8 @@ main {
   padding-bottom: 0.5rem;
 }
 
+
+/* ─── Währungs-Eingabefelder ─────────────────────────────────────── */
 .currency-inputs {
   display: flex;
   flex-direction: column;
@@ -55,6 +71,8 @@ main {
   border-color: var(--c-primary-dk);
 }
 
+
+/* ─── Wechselkurs-Anzeige ────────────────────────────────────────── */
 .rates-info {
   border-top: 1px solid var(--c-border);
   padding-top: 1rem;
@@ -68,13 +86,7 @@ main {
   font-size: 0.85rem;
 }
 
-.rates-info ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
+/* Tabelle zeigt alle Kurs-Richtungen (befüllt per app.js) */
 .rates-table {
   width: 100%;
   border-collapse: collapse;
@@ -103,8 +115,10 @@ main {
   white-space: nowrap;
 }
 
+
+/* ─── Fehlermeldung ──────────────────────────────────────────────── */
 .error-msg {
   color: var(--c-error);
   font-size: 0.9rem;
-  min-height: 1.2em;
+  min-height: 1.2em; /* Verhindert Layout-Shift wenn leer */
 }

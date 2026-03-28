@@ -1,3 +1,10 @@
+<!--
+  Datei:    Währungsrechner/index.html
+  Zweck:    Tool-Seite für die Währungsumrechnung (CHF, EUR, USD).
+            Eingabefelder und Wechselkurs-Tabelle sind statisch definiert,
+            Werte werden per app.js dynamisch befüllt.
+  Scripts:  base/tools.js → base/app.js (Sidebar + Hamburger) → app.js (Rechner-Logik)
+-->
 <!doctype html>
 <html lang="de">
   <head>
@@ -10,12 +17,16 @@
   <body class="has-aside">
     <header>
       <h1>Colasit Webtools Bereich Einkauf</h1>
+      <!-- Hamburger-Button — auf Desktop unsichtbar, auf Mobile eingeblendet -->
+      <button id="menu-toggle" aria-label="Navigation öffnen">&#9776;</button>
     </header>
     <main>
       <div class="converter-card">
         <h2>Währungsrechner</h2>
+        <!-- Fehlermeldung bei API-Ausfall (befüllt per app.js) -->
         <p id="error-msg" class="error-msg"></p>
 
+        <!-- Eingabefelder: Änderung in einem Feld rechnet die anderen automatisch um -->
         <div class="currency-inputs">
           <div class="currency-row">
             <label for="input-CHF">Schweizer Franken (CHF)</label>
@@ -49,6 +60,7 @@
           </div>
         </div>
 
+        <!-- Wechselkurs-Tabelle: alle 6 Richtungen, befüllt per app.js -->
         <div class="rates-info">
           <p class="rates-title">
             Aktuelle Wechselkurse <span id="rate-date"></span>
@@ -82,7 +94,7 @@
       </div>
     </main>
     <aside>
-      <!-- Rendered dynamically by base/app.js from base/tools.js -->
+      <!-- Wird dynamisch von base/app.js aus base/tools.js befüllt -->
     </aside>
     <footer>
       <p>Colasit AG©</p>

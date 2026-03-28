@@ -1,3 +1,15 @@
+/* =================================================================
+ * Datei:    base/style.css
+ * Zweck:    Globales Basis-Stylesheet für alle Seiten.
+ *           Definiert CSS-Variablen, das Grid-Seitenlayout
+ *           (mit und ohne Sidebar), Header, Aside, Footer
+ *           sowie das mobile Hamburger-Drawer-System.
+ * Einbinden: Alle Seiten — vor einem allfälligen seiten-
+ *            spezifischen style.css einbinden.
+ * ================================================================= */
+
+
+/* ─── CSS-Variablen (Design-Token) ──────────────────────────────── */
 :root {
   --c-primary:      #76cc7a;
   --c-primary-lt:   #afebad;
@@ -11,12 +23,18 @@
   --c-error:        #c62828;
 }
 
+
+/* ─── Reset ──────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+
+/* ─── Body & Grid-Layout ─────────────────────────────────────────── */
+
+/* Standard-Layout (Startseite): einspaltig, Header–Main–Footer */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 16px;
@@ -24,7 +42,6 @@ body {
   color: var(--c-text);
   background-color: var(--c-bg);
 
-  /* Grid layout — starter page (no aside) */
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
@@ -35,7 +52,7 @@ body {
     "footer";
 }
 
-/* Subpages: aside on the left */
+/* Tool-Unterseiten: zweispaltig mit 400px breiter Sidebar links */
 body.has-aside {
   grid-template-columns: 400px 1fr;
   grid-template-areas:
@@ -44,11 +61,14 @@ body.has-aside {
     "footer footer";
 }
 
+/* Grid-Bereichs-Zuweisungen */
 header { grid-area: header; }
 main   { grid-area: main; }
-aside  { grid-area: aside; display: none; }
+aside  { grid-area: aside; display: none; } /* Sidebar nur bei .has-aside sichtbar */
 footer { grid-area: footer; }
 
+
+/* ─── Header ─────────────────────────────────────────────────────── */
 header {
   display: flex;
   flex-direction: row;
@@ -60,6 +80,8 @@ header {
   padding: 10px;
 }
 
+
+/* ─── Aside / Sidebar ────────────────────────────────────────────── */
 body.has-aside aside {
   display: flex;
   flex-direction: column;
@@ -76,9 +98,13 @@ aside h2 {
   text-align: center;
 }
 
+/* Navigations-Links in der Sidebar — min-height 44px für Touch-Targets */
 aside a {
   padding: 0.3rem;
   margin: 0.5rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   background-color: var(--c-primary-lt);
   text-decoration: none;
   color: var(--c-text);
@@ -92,6 +118,7 @@ aside a:hover, aside a.back-link:hover {
   border-color: var(--c-primary-dk);
 }
 
+/* Aktives Tool in der Sidebar hervorheben (gesetzt per base/app.js) */
 aside a.active {
   background-color: var(--c-primary);
   border-color: var(--c-primary-dk);
@@ -102,6 +129,7 @@ aside a:active, aside a.back-link:active {
   background-color: var(--c-primary);
 }
 
+/* "Zur Übersicht"-Link mit neutralem Stil */
 aside a.back-link {
   color: var(--c-primary-dk);
   border: 1px solid var(--c-border);
@@ -110,6 +138,9 @@ aside a.back-link {
 }
 
 
+/* ─── Footer ─────────────────────────────────────────────────────── */
+
+/* Dreispaltiges Grid: Copyright links zentriert, Links rechts */
 footer {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -137,4 +168,94 @@ footer a:hover {
 footer a:active {
   transform: scale(0.85);
   display: inline-block;
+}
+
+
+/* ─── Hamburger-Button (Desktop: unsichtbar) ─────────────────────── */
+
+/* Wird nur auf Mobile per Media Query eingeblendet */
+#menu-toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 2px solid var(--c-surface);
+  border-radius: 5px;
+  color: var(--c-surface);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.2rem 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ─── Backdrop (wird per base/app.js ins DOM injiziert) ──────────── */
+#menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+
+/* ─── Responsive: Mobile (≤ 767px) ──────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Layout auf einspaltig umschalten — Aside aus dem Grid entfernen */
+  body.has-aside {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+
+  /* Aside wird zum Drawer: fixed, startet ausserhalb des Viewports */
+  body.has-aside aside {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -300px; /* versteckt ausserhalb des Viewports */
+    width: 280px;
+    height: 100vh;
+    z-index: 100;
+    margin: 0;
+    border-radius: 0 10px 10px 0;
+    overflow-y: auto;
+    padding-top: 1rem;
+    transition: left 0.25s ease;
+  }
+
+  /* Drawer geöffnet — Klasse wird per base/app.js gesetzt */
+  body.has-aside aside.aside--open {
+    left: 0;
+  }
+
+  /* Backdrop einblenden, wenn Drawer offen */
+  body.menu-open #menu-backdrop {
+    display: block;
+  }
+
+  /* Hamburger-Button einblenden */
+  #menu-toggle {
+    display: flex;
+  }
+
+  /* Footer: einspaltig, Links umbrechen */
+  footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.5rem;
+    padding: 12px 10px;
+  }
+
+  footer ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+  }
 }

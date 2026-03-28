@@ -1,24 +1,44 @@
+// =================================================================
+// Datei:    Währungsrechner/app.js
+// Zweck:    Wechselkurse von der Frankfurter API laden und die
+//           bidirektionale Umrechnung zwischen CHF, EUR und USD
+//           in Echtzeit berechnen.
+// API:      https://api.frankfurter.app (öffentlich, kein Key nötig)
+//           → API_BASE austauschen, um später das .NET-Backend
+//             als Proxy zu nutzen.
+// =================================================================
+
 'use strict';
 
-// Single point of change: swap this URL to route through the .NET backend later.
+// ─── Konfiguration ────────────────────────────────────────────────
+
+// Einzige Stelle, die beim Wechsel auf das .NET-Backend angepasst wird
 const API_BASE = 'https://api.frankfurter.app';
 
 const CURRENCIES = ['CHF', 'EUR', 'USD'];
 
-// Exchange rates keyed by currency code, relative to EUR as base.
+// Wechselkurse relativ zu EUR als Basiswährung (wird beim Laden befüllt)
 let rates = {};
+
+
+// ─── API-Aufruf ───────────────────────────────────────────────────
 
 async function fetchRates() {
   const res = await fetch(`${API_BASE}/latest?from=EUR&to=CHF,USD`);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
+  // EUR selbst hat immer den Faktor 1
   rates = { EUR: 1, ...data.rates };
   renderRates(data.date);
 }
 
+
+// ─── Wechselkurs-Tabelle befüllen ─────────────────────────────────
+
 function renderRates(date) {
   document.getElementById('rate-date').textContent = `(Stand: ${date})`;
 
+  // Alle 6 Richtungen (3 Währungen × 2) aus den geladenen Kursen berechnen
   const pairs = [
     ['eur', 'chf', rates.CHF],
     ['eur', 'usd', rates.USD],
@@ -32,6 +52,11 @@ function renderRates(date) {
   });
 }
 
+
+// ─── Umrechnung ───────────────────────────────────────────────────
+
+// Rechnet von sourceCurrency in alle anderen Währungen um.
+// Zwischenschritt über EUR vermeidet direkte Kreuzkurs-Tabellen.
 function convertFrom(sourceCurrency, rawValue) {
   const value = parseFloat(rawValue);
   CURRENCIES.forEach(c => {
@@ -46,6 +71,9 @@ function convertFrom(sourceCurrency, rawValue) {
   });
 }
 
+
+// ─── Input-Events ─────────────────────────────────────────────────
+
 function setupInputs() {
   CURRENCIES.forEach(currency => {
     document.getElementById(`input-${currency}`).addEventListener('input', function () {
@@ -53,6 +81,9 @@ function setupInputs() {
     });
   });
 }
+
+
+// ─── Initialisierung ──────────────────────────────────────────────
 
 async function init() {
   try {

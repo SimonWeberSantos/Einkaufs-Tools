@@ -1,3 +1,12 @@
+/* =================================================================
+ * Datei:    mainpage/style.css
+ * Zweck:    Layout und Styling der Tool-Karten auf der Startseite.
+ *           Die Karten werden per mainpage/app.js dynamisch gerendert.
+ * Basis:    base/style.css (CSS-Variablen, Grid, Header, Footer)
+ * ================================================================= */
+
+
+/* ─── Tool-Karten-Grid ───────────────────────────────────────────── */
 main {
     display: flex;
     flex-direction: row;
@@ -9,6 +18,7 @@ main {
     margin: 1rem;
 }
 
+/* Jede Karte ist ein anklickbarer Link mit Icon */
 main a {
     display: flex;
     flex-direction: column;
@@ -33,4 +43,21 @@ main a:hover {
 
 main a:active {
     background-color: var(--c-border);
+}
+
+
+/* ─── Responsive: Mobile (≤ 767px) ──────────────────────────────── */
+@media (max-width: 767px) {
+
+  main {
+    gap: 1.5rem;
+    margin: 1rem 0.75rem;
+  }
+
+  /* Karten nehmen volle Breite ein, Schrift etwas kleiner */
+  main a {
+    width: 100%;
+    font-size: 22px;
+    padding: 1.25rem;
+  }
 }

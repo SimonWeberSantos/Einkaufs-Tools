@@ -1,3 +1,14 @@
+<!--
+  Datei:    base/template.html
+  Zweck:    Kopiervorlage für neue Tool-Unterseiten.
+  Verwendung:
+    1. Dieses File in einen neuen Tool-Ordner kopieren und in index.html umbenennen
+    2. <title> anpassen
+    3. Neues Tool in base/tools.js eintragen (folder auf den Ordnernamen setzen)
+    4. Tool-Inhalt in <main> implementieren
+    5. app.js und style.css im gleichen Ordner erstellen
+  Scripts:  base/tools.js → base/app.js (Sidebar + Hamburger) → app.js (Tool-Logik)
+-->
 <!doctype html>
 <html lang="de">
   <head>
@@ -10,12 +21,14 @@
   <body class="has-aside">
     <header>
       <h1>Colasit Webtools Bereich Einkauf</h1>
+      <!-- Hamburger-Button — auf Desktop unsichtbar, auf Mobile eingeblendet -->
+      <button id="menu-toggle" aria-label="Navigation öffnen">&#9776;</button>
     </header>
     <main>
-      <p>main</p>
+      <!-- Tool-Inhalt hier implementieren -->
     </main>
     <aside>
-      <!-- Rendered dynamically by base/app.js from base/tools.js -->
+      <!-- Wird dynamisch von base/app.js aus base/tools.js befüllt -->
     </aside>
     <footer>
       <p>Colasit AG©</p>

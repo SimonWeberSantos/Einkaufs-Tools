@@ -1,7 +1,14 @@
+// =================================================================
+// Datei:    mainpage/app.js
+// Zweck:    Rendert die Tool-Karten auf der Startseite dynamisch
+//           aus dem zentralen TOOLS-Register.
+//           Nicht implementierte Tools (folder: null) erhalten
+//           einen deaktivierten Link (#).
+// Benötigt: base/tools.js muss vor diesem Script geladen sein.
+// =================================================================
+
 'use strict';
 
-// Renders the tool cards on the landing page from the central tool registry.
-// Requires TOOLS to be loaded from tools.js before this script.
 function renderToolCards() {
   const main = document.querySelector('main');
   if (!main) return;
