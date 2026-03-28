@@ -1,23 +1,32 @@
+<!--
+  Datei:    index.html
+  Zweck:    Einstiegspunkt der App — zeigt alle verfügbaren Tools als Karten.
+            Kein aside/Hamburger nötig, da diese Seite die Navigation selbst ist.
+  Scripts:  base/tools.js → mainpage/app.js (Karten rendern)
+-->
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Übersicht Webtools</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="base/style.css" />
     <link rel="stylesheet" href="mainpage/style.css" />
   </head>
   <body>
+    <noscript>
+      <div style="padding:1rem;background:#c62828;color:#fff;text-align:center;font-family:sans-serif;">
+        Diese App benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser.
+      </div>
+    </noscript>
     <header>
       <h1>Colasit Webtools Bereich Einkauf</h1>
     </header>
     <main>
       <!-- Rendered dynamically by app.js from base/tools.js -->
     </main>
-    <aside>
-      <!-- Leave empty -->
-    </aside>
-    <footer>
+<footer>
       <p>Colasit AG©</p>
       <ul>
         <li><a href="#">Impressum</a></li>

@@ -71,6 +71,12 @@ main {
   border-color: var(--c-primary-dk);
 }
 
+/* Eingabefelder gesperrt während die Wechselkurse laden */
+.currency-row input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 /* ─── Wechselkurs-Anzeige ────────────────────────────────────────── */
 .rates-info {

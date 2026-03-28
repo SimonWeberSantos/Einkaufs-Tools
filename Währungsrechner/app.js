@@ -83,15 +83,29 @@ function setupInputs() {
 }
 
 
+// ─── Ladezustand ──────────────────────────────────────────────────
+
+// Inputs während des API-Calls sperren / freigeben
+function setLoading(isLoading) {
+  CURRENCIES.forEach(c => {
+    document.getElementById(`input-${c}`).disabled = isLoading;
+  });
+  document.getElementById('rate-date').textContent = isLoading ? '(wird geladen…)' : '';
+}
+
+
 // ─── Initialisierung ──────────────────────────────────────────────
 
 async function init() {
+  setLoading(true);
   try {
     await fetchRates();
     setupInputs();
   } catch {
     const el = document.getElementById('error-msg');
     el.textContent = 'Wechselkurse konnten nicht geladen werden. Bitte Seite neu laden.';
+  } finally {
+    setLoading(false);
   }
 }
 
