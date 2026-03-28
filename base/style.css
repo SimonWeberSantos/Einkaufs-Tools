@@ -26,13 +26,6 @@
 
 /* ─── Reset ──────────────────────────────────────────────────────── */
 
-/* Verhindert automatische Schriftvergrösserung in Firefox Android */
-html {
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
