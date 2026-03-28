@@ -17,7 +17,7 @@ function renderSidebar() {
 
   aside.innerHTML = `
     <h2>Weitere Webtools</h2>
-    <a href="../mainpage/index.html" class="back-link">&#8592; Zur Übersicht</a>
+    <a href="../index.html" class="back-link">&#8592; Zur Übersicht</a>
     ${toolLinks}
   `;
 }
