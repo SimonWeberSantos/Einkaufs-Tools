@@ -52,7 +52,7 @@ footer { grid-area: footer; }
 header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
   background-color: var(--c-primary-dk);
@@ -90,6 +90,12 @@ aside a {
 
 aside a:hover, aside a.back-link:hover {
   border-color: var(--c-primary-dk);
+}
+
+aside a.active {
+  background-color: var(--c-primary);
+  border-color: var(--c-primary-dk);
+  font-weight: bold;
 }
 
 aside a:active, aside a.back-link:active {

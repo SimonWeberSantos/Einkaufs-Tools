@@ -12,7 +12,74 @@
       <h1>Colasit Webtools Bereich Einkauf</h1>
     </header>
     <main>
-      <p>main</p>
+      <div class="converter-card">
+        <h2>Währungsrechner</h2>
+        <p id="error-msg" class="error-msg"></p>
+
+        <div class="currency-inputs">
+          <div class="currency-row">
+            <label for="input-CHF">Schweizer Franken (CHF)</label>
+            <input
+              type="number"
+              id="input-CHF"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+            />
+          </div>
+          <div class="currency-row">
+            <label for="input-EUR">Euro (EUR)</label>
+            <input
+              type="number"
+              id="input-EUR"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+            />
+          </div>
+          <div class="currency-row">
+            <label for="input-USD">US-Dollar (USD)</label>
+            <input
+              type="number"
+              id="input-USD"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+
+        <div class="rates-info">
+          <p class="rates-title">
+            Aktuelle Wechselkurse <span id="rate-date"></span>
+          </p>
+          <table class="rates-table">
+            <thead>
+              <tr><th></th><th>CHF</th><th>EUR</th><th>USD</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1 CHF =</th>
+                <td>—</td>
+                <td><span id="rate-chf-eur">…</span></td>
+                <td><span id="rate-chf-usd">…</span></td>
+              </tr>
+              <tr>
+                <th>1 EUR =</th>
+                <td><span id="rate-eur-chf">…</span></td>
+                <td>—</td>
+                <td><span id="rate-eur-usd">…</span></td>
+              </tr>
+              <tr>
+                <th>1 USD =</th>
+                <td><span id="rate-usd-chf">…</span></td>
+                <td><span id="rate-usd-eur">…</span></td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
     <aside>
       <!-- Rendered dynamically by base/app.js from base/tools.js -->
