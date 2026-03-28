@@ -1,0 +1,51 @@
+<!--
+  Datei:    Artikel-Übersicht/index.html
+  Zweck:    Tool-Seite für die Artikel-Übersicht.
+            Inhalt noch in Arbeit — Sidebar, Hamburger und Navigation
+            sind bereits vollständig funktionsfähig.
+  Scripts:  base/tools.js → base/app.js (Sidebar + Hamburger) → app.js (Tool-Logik)
+-->
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artikel Übersicht</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../base/style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="has-aside">
+    <noscript>
+      <div style="padding:1rem;background:#c62828;color:#fff;text-align:center;font-family:sans-serif;">
+        Diese App benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser.
+      </div>
+    </noscript>
+    <header>
+      <h1>Colasit Webtools Bereich Einkauf</h1>
+      <!-- Hamburger-Button — auf Desktop unsichtbar, auf Mobile eingeblendet -->
+      <button id="menu-toggle" aria-label="Navigation öffnen">&#9776;</button>
+    </header>
+    <main>
+      <div class="placeholder-card">
+        <h2>Artikel Übersicht</h2>
+        <p class="placeholder-msg">Inhalt folgt.</p>
+      </div>
+    </main>
+    <aside>
+      <!-- Wird dynamisch von base/app.js aus base/tools.js befüllt -->
+    </aside>
+    <footer>
+      <p>Colasit AG©</p>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Teams</a></li>
+        <li><a href="#">Synonet</a></li>
+        <li><a href="#">Ablage</a></li>
+      </ul>
+    </footer>
+    <script src="../base/tools.js"></script>
+    <script src="../base/app.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

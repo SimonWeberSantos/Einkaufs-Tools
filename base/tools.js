@@ -16,7 +16,7 @@
 const TOOLS = [
   { name: 'Währungsrechner',           folder: 'Währungsrechner', icon: '💰' },
   { name: 'Granulat Gewichtsrechner',  folder: 'Granulat-Gewichtsrechner', icon: '⚖' },
-  { name: 'Tool 3',                    folder: null,              icon: '⚒️' },
-  { name: 'Tool 4',                    folder: null,              icon: '⚒️' },
-  { name: 'Tool 5',                    folder: null,              icon: '⚒️' },
+  { name: 'Artikel Übersicht',          folder: 'Artikel-Übersicht', icon: '📋' },
+  { name: 'Tool 4 - in Arbeit',        folder: 'Tool-4',          icon: '⚒️' },
+  { name: 'Tool 5 - in Arbeit',        folder: 'Tool-5',          icon: '⚒️' },
 ];
