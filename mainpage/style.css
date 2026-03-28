@@ -23,17 +23,23 @@ main a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 33px;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 400px;
+    height: 200px;
+    font-size: 22px;
+    text-align: center;
+    overflow-wrap: break-word;
     text-decoration: none;
     color: var(--c-primary-dk);
     background-color: var(--c-surface);
     border: 2px solid var(--c-primary-dk);
     border-radius: 10px;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 main a .icon {
-    font-size: 3em;
+    font-size: 5rem;
     transition: transform 0.2s ease;
 }
 
@@ -54,10 +60,11 @@ main a:active {
     margin: 1rem 0.75rem;
   }
 
-  /* Karten nehmen volle Breite ein, Schrift etwas kleiner */
+  /* Karten nehmen volle Breite ein, feste Desktop-Grösse überschreiben */
   main a {
     width: 100%;
-    font-size: 22px;
-    padding: 1.25rem;
+    height: auto;
+    font-size: 16px;
+    padding: 1rem 1.25rem;
   }
 }
